@@ -587,11 +587,11 @@ function OrderForm({ preselectedProduct, products }) {
     <div className="order-form">
       <div className="form-group">
         <label className="form-label">Full Name *</label>
-        <input className="form-input" placeholder="e.g. Jean-Paul Ndongo" value={form.name} onChange={set("name")} />
+        <input className="form-input" placeholder="e.g. James Walter" value={form.name} onChange={set("name")} />
       </div>
       <div className="form-group">
         <label className="form-label">Phone (WhatsApp) *</label>
-        <input className="form-input" placeholder="e.g. 6XX XXX XXX" value={form.phone} onChange={set("phone")} />
+        <input className="form-input" placeholder="e.g. XX XX XX XX XX" value={form.phone} onChange={set("phone")} />
       </div>
       <div className="form-group">
         <label className="form-label">City</label>
