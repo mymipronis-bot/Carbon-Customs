@@ -7,7 +7,7 @@ const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const CATEGORIES = ["Sport", "Racing", "Street", "Luxury"];
-const formatPrice = (p) => Number(p).toLocaleString("fr-FR") + " FCFA";
+const formatPrice = (p) => Number(p).toLocaleString("fr-FR") + " $ ";
 
 // ── STYLES ────────────────────────────────────────────────────────────────────
 const css = `
@@ -402,8 +402,8 @@ function ProductFormModal({ product, onClose, onSave }) {
           </div>
           <div className="form-row">
             <div className="field-group">
-              <label className="field-label">Price (FCFA) *</label>
-              <input className="field-input" type="number" value={form.price} onChange={set("price")} placeholder="185000" />
+              <label className="field-label">Price ($) *</label>
+              <input className="field-input" type="number" value={form.price} onChange={set("price")} placeholder="185$" />
             </div>
             <div className="field-group">
               <label className="field-label">Category *</label>
