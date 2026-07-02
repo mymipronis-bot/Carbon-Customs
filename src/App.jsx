@@ -291,9 +291,52 @@ function OrderForm({ preselectedProduct, products,carModels }) {
         <input className="form-input" placeholder="e.g. 123 Main St, Los Angeles, CA" value={form.address} onChange={set("address")} />
       </div>
       <div className="form-group">
-        <label className="form-label">Car Make & Model</label>
-        <input className="form-input" placeholder="e.g. Lexus IS350, Ford Mustang GT" value={form.car} onChange={set("car")} />
-      </div>
+  <label className="form-label">Car Make & Model</label>
+
+  <input
+    className="form-input"
+    type="text"
+    placeholder="Search BMW, Mercedes, Audi..."
+    value={search}
+    onChange={(e) => handleSearch(e.target.value)}
+  />
+
+  {results.length > 0 && (
+    <div
+      style={{
+        background: "#111",
+        border: "1px solid #333",
+        borderRadius: "4px",
+        marginTop: "5px",
+        maxHeight: "180px",
+        overflowY: "auto"
+      }}
+    >
+      {results.map((car) => (
+        <div
+          key={car.id}
+          style={{
+            padding: "10px",
+            cursor: "pointer",
+            borderBottom: "1px solid #222"
+          }}
+          onClick={() => {
+            setForm((f) => ({
+              ...f,
+              car: `${car.brand} ${car.model}`
+            }));
+            setSearch(`${car.brand} ${car.model}`);
+            setResults([]);
+          }}
+        >
+          {car.brand} {car.model}
+        </div>
+      ))}
+    </div>
+  )}
+</div>
+
+      <input type="hidden" value={form.car} />
       <div className="form-group">
         <label className="form-label">Desired Product *</label>
         <select className="form-select" value={form.product} onChange={set("product")}>
