@@ -252,11 +252,11 @@ function ProductModal({ product, onClose, onOrder }) {
   );
 }
 
-function OrderForm({ preselectedProduct, products }) {
+function OrderForm({ preselectedProduct, products,carModels }) {
   const [form, setForm] = useState({
     name: "", phone: "", address: "", car: "",
     product: preselectedProduct?.name || "", parts: [], note: ""
-  });
+  }); 
   const [sent, setSent] = useState(false);
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
@@ -339,7 +339,8 @@ export default function App() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [orderProduct, setOrderProduct] = useState(null);
-
+  const [carModels, setCarModels] = useState([]);
+  
   useEffect(() => {
     let mounted = true;
     (async () => {
@@ -348,6 +349,7 @@ export default function App() {
           supabase.from("products").select("*").order("created_at", { ascending: true }),
           supabase.from("hero_images").select("*").order("sort_order", { ascending: true }),
           supabase.from("settings").select("*"),
+          supabase.from("car_models").select("*").order("brand"),
         ]);
         if (!mounted) return;
         if (prodData?.length > 0) setProducts(prodData.map((p) => ({ id: p.id, name: p.name, price: p.price, category: p.category, image: p.image_url, badge: p.badge, specs: p.specs || [] })));
@@ -355,6 +357,9 @@ export default function App() {
         if (settingsData) {
           const logo = settingsData.find((s) => s.key === "logo_url");
           if (logo) setLogoUrl(logo.value);
+          if (carData) {
+            setCarModels(carData);
+          }
         }
       } catch (err) {
         console.error("Supabase fetch failed:", err);
