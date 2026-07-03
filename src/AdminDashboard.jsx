@@ -22,7 +22,7 @@ const css = `
   /* LOGIN */
   .login-screen { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 1.5rem; }
   .login-box { width: 100%; max-width: 380px; background: var(--card); border: 1px solid var(--border); padding: 2.5rem 2rem; border-radius: var(--radius); }
-  .login-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.6rem; letter-spacing: 0.1em; text-transform: uppercase; text-align: center; margin-bottom: 0.4rem; }
+  .login-logo { font-family: 'Playfair Display', serif; font-weight: 800; font-size: 1.6rem; letter-spacing: 0.1em; text-transform: uppercase; text-align: center; margin-bottom: 0.4rem; }
   .login-logo span { color: var(--blue); }
   .login-sub { text-align: center; color: var(--muted); font-size: 0.78rem; margin-bottom: 2rem; }
   .login-error { background: rgba(255,59,59,0.1); border: 1px solid var(--red); color: var(--red); font-size: 0.78rem; padding: 0.7rem 1rem; border-radius: var(--radius); margin-bottom: 1rem; }
@@ -38,7 +38,7 @@ const css = `
 
   /* HEADER */
   .admin-header { position: sticky; top: 0; z-index: 50; background: rgba(8,8,8,0.96); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); padding: 1rem 5vw; display: flex; align-items: center; justify-content: space-between; }
-  .admin-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.3rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .admin-logo { font-family: 'Playfair Display', serif; font-weight: 800; font-size: 1.3rem; letter-spacing: 0.08em; text-transform: uppercase; }
   .admin-logo span { color: var(--blue); }
   .admin-badge { font-family: 'Space Mono', monospace; font-size: 0.58rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-left: 0.6rem; }
   .logout-btn { background: transparent; color: var(--muted); border: 1px solid var(--border); padding: 0.45rem 1rem; font-family: 'Space Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); transition: all 0.2s; }
@@ -52,7 +52,7 @@ const css = `
   /* BODY */
   .admin-body { padding: 2rem 5vw 5rem; }
   .admin-toolbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem; }
-  .admin-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 2rem; letter-spacing: -0.01em; text-transform: uppercase; }
+  .admin-title { font-family: 'Playfair Display', serif; font-weight: 800; font-size: 2rem; letter-spacing: -0.01em; text-transform: uppercase; }
   .admin-count { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--muted); }
   .add-btn { background: var(--blue); color: #fff; border: none; padding: 0.7rem 1.3rem; font-family: 'Space Mono', monospace; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); transition: background 0.2s; }
   .add-btn:hover { background: var(--blue-dim); }
@@ -62,9 +62,9 @@ const css = `
   .product-row { background: var(--card); padding: 1rem 1.2rem; display: flex; align-items: center; gap: 1rem; }
   .row-img { width: 56px; height: 56px; border-radius: var(--radius); object-fit: contain; flex-shrink: 0; background: #1a1a1a; padding: 2px; }
   .row-info { flex: 1; min-width: 0; }
-  .row-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.02em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .row-name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.02em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .row-meta { font-size: 0.72rem; color: var(--muted); font-family: 'Space Mono', monospace; margin-top: 0.2rem; }
-  .row-price { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; color: var(--red); font-size: 1rem; white-space: nowrap; }
+  .row-price { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--red); font-size: 1rem; white-space: nowrap; }
   .row-actions { display: flex; gap: 0.5rem; flex-shrink: 0; }
   .row-btn { background: transparent; border: 1px solid var(--border); color: var(--muted); width: 34px; height: 34px; border-radius: var(--radius); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; transition: all 0.2s; }
   .row-btn.edit:hover { border-color: var(--blue); color: var(--blue); }
@@ -81,7 +81,7 @@ const css = `
   /* LOGO SECTION */
   .logo-preview { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border); background: #1a1a1a; margin-bottom: 1rem; }
   .settings-card { background: var(--card); border: 1px solid var(--border); padding: 1.5rem; margin-bottom: 1rem; border-radius: var(--radius); }
-  .settings-card-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 1rem; }
+  .settings-card-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 1rem; }
 
   /* UPLOAD BTN */
   .upload-btn { display: flex; align-items: center; justify-content: center; background: transparent; border: 1px dashed var(--blue); color: var(--blue); padding: 0.7rem; font-family: 'Space Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); transition: background 0.2s; width: 100%; }
@@ -93,7 +93,7 @@ const css = `
   .modal-overlay { position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.9); backdrop-filter: blur(8px); display: flex; align-items: flex-start; justify-content: center; padding: 1rem; overflow-y: auto; }
   .modal-form { background: var(--card); border: 1px solid var(--border); max-width: 460px; width: 100%; border-radius: var(--radius); margin: 2rem 0; }
   .modal-form-header { padding: 1.3rem 1.5rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
-  .modal-form-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.3rem; text-transform: uppercase; letter-spacing: 0.02em; }
+  .modal-form-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.3rem; text-transform: uppercase; letter-spacing: 0.02em; }
   .modal-form-close { background: #1a1a1a; border: none; color: var(--muted); width: 28px; height: 28px; border-radius: 50%; cursor: pointer; }
   .modal-form-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
   .form-row { display: flex; gap: 1rem; }
