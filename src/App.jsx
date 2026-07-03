@@ -266,7 +266,34 @@ function ProductModal({ product, onClose, onOrder }) {
     </div>
   );
 }
-
+function ReturnPolicyModal({ onClose }) {
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal" onClick={(e) => e.stopPropagation()}>
+        <div className="modal-top-bar" />
+        <button className="modal-close" onClick={onClose}>✕</button>
+        <div className="modal-body">
+          <p className="modal-cat">Customer Care</p>
+          <h3 className="modal-name" style={{ fontSize: "1.7rem" }}>Return Policy</h3>
+          <p style={{ color: "var(--muted)", fontSize: "0.82rem", lineHeight: 1.85, marginBottom: "1rem" }}>
+            At Carbon Customs, your satisfaction is our priority. We offer a 30-day return
+            window from the date of delivery for unwanted or faulty products.
+          </p>
+          <ul className="modal-specs">
+            <li>Unwanted items must be returned unused, in original condition and packaging.</li>
+            <li>Faulty or damaged items are eligible for a full refund or free replacement.</li>
+            <li>Return shipping is free for faulty products; buyer covers return shipping for unwanted items.</li>
+            <li>Refunds are processed within 5–7 business days after we receive the returned item.</li>
+            <li>To start a return, contact us via WhatsApp or email with your order details.</li>
+          </ul>
+          <p style={{ color: "var(--muted)", fontSize: "0.78rem", lineHeight: 1.8 }}>
+            Questions? Reach us at <a href={`mailto:${EMAIL}`} style={{ color: "var(--blue)" }}>{EMAIL}</a> or via WhatsApp.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
 function OrderForm({ preselectedProduct, products }) {
   const [form, setForm] = useState({
     name: "", phone: "", address: "", car: "",
@@ -377,7 +404,7 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [orderProduct, setOrderProduct] = useState(null);
-
+  const [showReturnPolicy, setShowReturnPolicy] = useState(false);
   useEffect(() => {
     let mounted = true;
     (async () => {
