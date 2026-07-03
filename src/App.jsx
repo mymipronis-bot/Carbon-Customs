@@ -25,7 +25,7 @@ const BODY_PARTS = [
   "Spoiler", "Door Panels", "Dashboard Trim", "Shift Knob",
   "Seat Covers", "Roof", "Side Skirts", "Other",
 ];
-
+const PAYMENT_METHODS = ["Zelle Pay", "Apple Pay", "Chime", "Bitcoin"];
 const CATEGORIES = ["All", "Sport", "Racing", "Street", "Luxury"];
 const WHATSAPP_NUMBER = "18392288550";
 const INSTAGRAM = "https://www.instagram.com/customs_carbon";
@@ -42,6 +42,7 @@ const buildWhatsAppMsg = (form, product) => {
     `🚗 *Car Make & Model:* ${form.car}`, ``,
     `🛞 *Product:* ${product ? product.name : form.product}`,
     `💰 *Price:* ${product ? formatPrice(product.price) : "—"}`,
+    `💳 *Payment Method:* ${form.paymentMethod}`,
     form.parts.length > 0 ? `🔧 *Body Parts:* ${form.parts.join(", ")}` : ``,
     ``, form.note ? `📝 *Notes:* ${form.note}` : ``,
   ].filter((l) => l !== undefined).join("\n");
@@ -192,7 +193,15 @@ const css = `
   .search-input::placeholder { color: var(--muted); }
   .search-icon { position: absolute; left: 0.85rem; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 0.85rem; pointer-events: none; }
   .search-empty { color: var(--muted); font-size: 0.85rem; padding: 2rem 0; text-align: center; grid-column: 1 / -1; }
-  
+  .payment-list { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: #0a0a0a; }
+  .payment-option { display: flex; align-items: center; gap: 0.7rem; padding: 0.85rem 1rem; cursor: pointer; border-bottom: 1px solid var(--border); transition: background 0.15s; }
+  .payment-option:last-child { border-bottom: none; }
+  .payment-option:hover { background: #131313; }
+  .payment-radio { width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid var(--muted); flex-shrink: 0; position: relative; }
+  .payment-option.selected .payment-radio { border-color: var(--blue); }
+  .payment-option.selected .payment-radio::after { content: ''; position: absolute; inset: 3px; border-radius: 50%; background: var(--blue); }
+  .payment-option-label { font-size: 0.82rem; color: var(--white); }
+  .payment-reveal { padding: 0.85rem 1rem; background: #0d0d0d; border-bottom: 1px solid var(--border); font-size: 0.76rem; color: var(--muted); line-height: 1.6; }
     @media (max-width: 768px) {
     .hero-stats { display: none; }
     .order-inner { grid-template-columns: 1fr; }
@@ -261,7 +270,8 @@ function ProductModal({ product, onClose, onOrder }) {
 function OrderForm({ preselectedProduct, products }) {
   const [form, setForm] = useState({
     name: "", phone: "", address: "", car: "",
-    product: preselectedProduct?.name || "", parts: [], note: ""
+    product: preselectedProduct?.name || "", parts: [], note: "",
+    paymentMethod: "Zelle Pay"
   });
   const [sent, setSent] = useState(false);
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
@@ -287,6 +297,27 @@ function OrderForm({ preselectedProduct, products }) {
       <div className="form-group">
         <label className="form-label">Full Name *</label>
         <input className="form-input" placeholder="e.g. James Wilson" value={form.name} onChange={set("name")} />
+      </div>
+      <div className="form-group">
+        <label className="form-label">Payment Method</label>
+        <div className="payment-list">
+          {PAYMENT_METHODS.map((method) => (
+            <div key={method}>
+              <div
+                className={`payment-option${form.paymentMethod === method ? " selected" : ""}`}
+                onClick={() => setForm((f) => ({ ...f, paymentMethod: method }))}
+              >
+                <span className="payment-radio" />
+                <span className="payment-option-label">{method}</span>
+              </div>
+              {form.paymentMethod === method && (
+                <div className="payment-reveal">
+                  Proceed with your order, we will provide you with {method} details.
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
       <div className="form-group">
         <label className="form-label">Phone (WhatsApp) *</label>
