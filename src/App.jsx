@@ -186,7 +186,13 @@ const css = `
   .modal-price { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.5rem; color: var(--red); margin-bottom: 1.2rem; letter-spacing: 0.02em; }
   .modal-order-btn { width: 100%; background: #25D366; color: #fff; border: none; padding: 0.9rem; font-family: 'Space Mono', monospace; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; gap: 0.6rem; transition: background 0.2s; }
   .modal-order-btn:hover { background: #1ebe5a; }
-
+  .search-bar { position: relative; margin-bottom: 1.5rem; max-width: 360px; }
+  .search-input { width: 100%; background: #0a0a0a; color: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.7rem 1rem 0.7rem 2.4rem; font-family: 'Inter', sans-serif; font-size: 0.82rem; transition: border-color 0.2s, box-shadow 0.2s; }
+  .search-input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,102,255,0.08); }
+  .search-input::placeholder { color: var(--muted); }
+  .search-icon { position: absolute; left: 0.85rem; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 0.85rem; pointer-events: none; }
+  .search-empty { color: var(--muted); font-size: 0.85rem; padding: 2rem 0; text-align: center; grid-column: 1 / -1; }
+  
     @media (max-width: 768px) {
     .hero-stats { display: none; }
     .order-inner { grid-template-columns: 1fr; }
@@ -337,6 +343,7 @@ export default function App() {
   const [logoUrl, setLogoUrl] = useState("/logo.jpg");
   const [loading, setLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState("All");
+  const [searchQuery, setSearchQuery] = useState("");
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [orderProduct, setOrderProduct] = useState(null);
 
@@ -365,7 +372,9 @@ export default function App() {
     return () => { mounted = false; };
   }, []);
 
-  const filtered = activeCategory === "All" ? products : products.filter((p) => p.category === activeCategory);
+  const filtered = products
+    .filter((p) => activeCategory === "All" || p.category === activeCategory)
+    .filter((p) => p.name.toLowerCase().includes(searchQuery.trim().toLowerCase()));
   const handleOrder = (product) => {
     setSelectedProduct(null);
     setOrderProduct(product);
@@ -425,13 +434,25 @@ export default function App() {
             </span>
           )}
         </div>
+        <div className="search-bar">
+          <span className="search-icon">🔍</span>
+          <input
+            className="search-input"
+            type="text"
+            placeholder="Search a product..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </div>
         <div className="filter-bar">
           {CATEGORIES.map((cat) => (
             <button key={cat} className={`filter-btn${activeCategory === cat ? " active" : ""}`} onClick={() => setActiveCategory(cat)}>{cat}</button>
           ))}
         </div>
         <div className="product-grid">
+          {filtered.length === 0 && <p className="search-empty">No products match your search.</p>}
           {filtered.map((product) => (
+          
             <div key={product.id} className="product-card" onClick={() => setSelectedProduct(product)}>
               {product.badge && <span className="card-badge">{product.badge}</span>}
               <div className="card-img-wrap">
