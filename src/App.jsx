@@ -25,6 +25,11 @@ const BODY_PARTS = [
   "Spoiler", "Door Panels", "Dashboard Trim", "Shift Knob",
   "Seat Covers", "Roof", "Side Skirts", "Other",
 ];
+const TESTIMONIALS = [
+  { name: "Frank Martins", city: "New York City", text: "The team was super helpful in guiding me through the selection process. The carbon fiber wheel I purchased was easy to install and gave my car the aggressive look I wanted.", rating: 5 },
+  { name: "James Reyes", city: "Miami, FL", text: "Build quality is next level. Fit was perfect and the leather stitching is flawless. Worth every dollar.", rating: 5 },
+  { name: "Diana Cole", city: "Austin, TX", text: "Fast communication on WhatsApp, shipped exactly when promised. My Mustang's interior looks completely different now.", rating: 5 },
+];
 const PAYMENT_METHODS = ["Zelle Pay", "Apple Pay", "Chime", "Bitcoin"];
 const CATEGORIES = ["All", "Sport", "Racing", "Street", "Luxury"];
 const WHATSAPP_NUMBER = "18392288550";
@@ -202,6 +207,15 @@ const css = `
   .payment-option.selected .payment-radio::after { content: ''; position: absolute; inset: 3px; border-radius: 50%; background: var(--blue); }
   .payment-option-label { font-size: 0.82rem; color: var(--white); }
   .payment-reveal { padding: 0.85rem 1rem; background: #0d0d0d; border-bottom: 1px solid var(--border); font-size: 0.76rem; color: var(--muted); line-height: 1.6; }
+  .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5px; background: var(--border); border: 1px solid var(--border); margin-top: 3rem; }
+  .testimonial-card { background: var(--card); padding: 2rem; transition: background 0.2s; }
+  .testimonial-card:hover { background: #161616; }
+  .testimonial-stars { color: var(--blue); font-size: 0.85rem; letter-spacing: 0.15em; margin-bottom: 1rem; }
+  .testimonial-text { font-size: 0.83rem; color: var(--muted); line-height: 1.85; margin-bottom: 1.5rem; font-style: italic; }
+  .testimonial-author { display: flex; align-items: center; gap: 0.7rem; }
+  .testimonial-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--blue); color: #fff; display: flex; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 0.8rem; flex-shrink: 0; }
+  .testimonial-name { font-size: 0.82rem; font-weight: 600; color: var(--white); }
+  .testimonial-city { font-size: 0.68rem; color: var(--muted); }
     @media (max-width: 768px) {
     .hero-stats { display: none; }
     .order-inner { grid-template-columns: 1fr; }
@@ -530,6 +544,25 @@ export default function App() {
                 </div>
               </div>
               <div className="card-hover-line" />
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="section" style={{ borderTop: "1px solid var(--border)" }}>
+        <p className="section-eyebrow">Reviews</p>
+        <h2 className="section-title">What Our Customers Say</h2>
+        <div className="testimonial-grid">
+          {TESTIMONIALS.map((t, i) => (
+            <div key={i} className="testimonial-card">
+              <p className="testimonial-stars">{"★".repeat(t.rating)}</p>
+              <p className="testimonial-text">"{t.text}"</p>
+              <div className="testimonial-author">
+                <span className="testimonial-avatar">{t.name.charAt(0)}</span>
+                <div>
+                  <p className="testimonial-name">{t.name}</p>
+                  <p className="testimonial-city">{t.city}</p>
+                </div>
+              </div>
             </div>
           ))}
         </div>
