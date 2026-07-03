@@ -208,6 +208,10 @@ const css = `
     .nav-links { display: none; }
     .footer-top { flex-direction: column; }
     .parts-grid { grid-template-columns: 1fr 1fr; }
+    .nav-logo { font-size: 1.15rem; gap: 0.4rem; }
+    .nav-logo img { width: 30px; height: 30px; }
+    .nav-cta { padding: 0.4rem 0.8rem; font-size: 0.58rem; }
+    .nav { padding: 0 4vw; }
   }
 `;
 
