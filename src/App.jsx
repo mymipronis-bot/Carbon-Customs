@@ -50,7 +50,7 @@ const buildWhatsAppMsg = (form, product) => {
 };
 
 const css = `
-  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
     --black: #080808; --surface: #0D0D0D; --card: #111111; --border: #1C1C1C;
@@ -61,7 +61,7 @@ const css = `
   body { background: var(--black); color: var(--white); font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
   .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 5vw; height: 64px; background: rgba(8,8,8,0.96); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
-  .nav-logo { font-family: 'Barlow Condensed', sans-serif; font-size: 1.55rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); text-decoration: none; display: flex; align-items: center; gap: 0.6rem; }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); text-decoration: none; display: flex; align-items: center; gap: 0.6rem; }
   .nav-logo img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
   .nav-logo span { color: var(--blue); }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
@@ -82,7 +82,7 @@ const css = `
   .hero-dot.active { background: var(--blue); transform: scale(1.4); }
   .hero-eyebrow { font-family: 'Space Mono', monospace; font-size: 0.66rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--blue); margin-bottom: 1.4rem; position: relative; z-index: 3; display: flex; align-items: center; gap: 0.8rem; }
   .hero-eyebrow::before { content: ''; display: inline-block; width: 28px; height: 1px; background: var(--blue); flex-shrink: 0; }
-  .hero-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(4rem, 11vw, 9.5rem); line-height: 0.9; letter-spacing: -0.01em; text-transform: uppercase; position: relative; z-index: 3; max-width: 14ch; }
+  .hero-title { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(4rem, 11vw, 9.5rem); line-height: 0.9; letter-spacing: -0.01em; text-transform: uppercase; position: relative; z-index: 3; max-width: 14ch; }
   .hero-title-outline { -webkit-text-stroke: 1.5px rgba(255,255,255,0.12); color: transparent; display: block; }
   .hero-title em { color: var(--blue); font-style: normal; display: block; }
   .hero-sub { max-width: 420px; color: var(--muted); font-size: 0.88rem; line-height: 1.85; margin-top: 1.8rem; position: relative; z-index: 3; }
@@ -92,13 +92,13 @@ const css = `
   .btn-outline { background: transparent; color: var(--white); border: 1px solid #252525; padding: 0.9rem 2.2rem; font-family: 'Space Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); transition: border-color 0.2s, color 0.2s; }
   .btn-outline:hover { border-color: var(--blue); color: var(--blue); }
   .hero-stats { position: absolute; right: 5vw; bottom: 9vh; z-index: 3; display: flex; flex-direction: column; gap: 2rem; text-align: right; }
-  .stat-num { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 2.8rem; color: var(--blue); line-height: 1; letter-spacing: -0.02em; }
+  .stat-num { font-family: 'Playfair Display', serif; font-weight: 800; font-size: 2.8rem; color: var(--blue); line-height: 1; letter-spacing: -0.02em; }
   .stat-label { font-size: 0.62rem; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; font-family: 'Space Mono', monospace; }
 
   .section { padding: 6rem 5vw; }
   .section-eyebrow { font-family: 'Space Mono', monospace; font-size: 0.63rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.7rem; display: flex; align-items: center; gap: 0.7rem; }
   .section-eyebrow::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--blue); flex-shrink: 0; }
-  .section-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(2.4rem, 5.5vw, 4rem); letter-spacing: -0.01em; text-transform: uppercase; line-height: 0.95; }
+  .section-title { font-family: 'Playfair Display', serif; font-weight: 800; font-size: clamp(2.4rem, 5.5vw, 4rem); letter-spacing: -0.01em; text-transform: uppercase; line-height: 0.95; }
   .section-header { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem; }
 
   .filter-bar { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
@@ -117,25 +117,25 @@ const css = `
   .card-badge { position: absolute; top: 12px; left: 12px; background: var(--red); color: #fff; font-family: 'Space Mono', monospace; font-size: 0.56rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.22rem 0.55rem; }
   .card-body { padding: 1.2rem 1.4rem 1.5rem; }
   .card-cat { font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red-dim); margin-bottom: 0.3rem; font-family: 'Space Mono', monospace; }
-  .card-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.35rem; letter-spacing: 0.02em; line-height: 1.05; text-transform: uppercase; margin-bottom: 0.85rem; }
+  .card-name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.35rem; letter-spacing: 0.02em; line-height: 1.05; text-transform: uppercase; margin-bottom: 0.85rem; }
   .card-specs { list-style: none; margin-bottom: 1rem; }
   .card-specs li { font-size: 0.72rem; color: var(--muted); padding: 0.26rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem; }
   .card-specs li::before { content: "—"; color: var(--blue); font-size: 0.5rem; }
   .card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 0.5rem; }
-  .card-price { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--red); letter-spacing: 0.02em; }
+  .card-price { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.1rem; color: var(--red); letter-spacing: 0.02em; }
   .card-btn { background: transparent; color: var(--blue); border: 1px solid var(--blue); padding: 0.38rem 0.9rem; font-family: 'Space Mono', monospace; font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); transition: background 0.2s, color 0.2s; }
   .card-btn:hover { background: var(--blue); color: #fff; }
 
   .process-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 3rem; }
   .process-step { background: var(--card); padding: 2rem; transition: background 0.2s; }
   .process-step:hover { background: #161616; }
-  .step-num { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 4rem; color: #1e1e1e; line-height: 1; margin-bottom: 1rem; letter-spacing: -0.02em; }
+  .step-num { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 4rem; color: #1e1e1e; line-height: 1; margin-bottom: 1rem; letter-spacing: -0.02em; }
   .step-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.2rem; letter-spacing: 0.03em; text-transform: uppercase; margin-bottom: 0.6rem; }
   .step-desc { font-size: 0.79rem; color: var(--muted); line-height: 1.78; }
 
   .order-section { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .order-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5vw; align-items: start; }
-  .order-info h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(2.2rem, 4.5vw, 3.5rem); letter-spacing: -0.01em; text-transform: uppercase; line-height: 0.95; margin-bottom: 1.2rem; }
+  .order-info h2 { font-family: 'Playfair Display', serif; font-weight: 800; font-size: clamp(2.2rem, 4.5vw, 3.5rem); letter-spacing: -0.01em; text-transform: uppercase; line-height: 0.95; margin-bottom: 1.2rem; }
   .order-info p { color: var(--muted); font-size: 0.85rem; line-height: 1.85; margin-bottom: 1.2rem; }
   .order-guarantee { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 2rem; }
   .guarantee-item { display: flex; align-items: center; gap: 0.8rem; font-size: 0.79rem; color: var(--muted); }
@@ -161,7 +161,7 @@ const css = `
 
   .footer { background: var(--black); border-top: 1px solid var(--border); padding: 3rem 5vw 2rem; }
   .footer-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
-  .footer-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+  .footer-logo { font-family: 'Playfair Display', serif; font-weight: 800; font-size: 1.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
   .footer-logo span { color: var(--blue); }
   .footer-tagline { font-size: 0.74rem; color: var(--muted); margin-top: 0.4rem; letter-spacing: 0.05em; }
   .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; }
@@ -180,11 +180,11 @@ const css = `
   .modal-img { width: 100%; max-height: 420px; object-fit: contain; display: block; background: #0a0a0a; padding: 1rem; }
   .modal-body { padding: 1.5rem; }
   .modal-cat { font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red-dim); font-family: 'Space Mono', monospace; }
-  .modal-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 2.1rem; letter-spacing: 0.02em; text-transform: uppercase; margin: 0.4rem 0 1rem; line-height: 1; }
+  .modal-name { font-family: 'Playfair Display', serif; font-weight: 800; font-size: 2.1rem; letter-spacing: 0.02em; text-transform: uppercase; margin: 0.4rem 0 1rem; line-height: 1; }
   .modal-specs { list-style: none; margin-bottom: 1.2rem; }
   .modal-specs li { font-size: 0.79rem; color: var(--muted); padding: 0.4rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem; }
   .modal-specs li::before { content: "◆"; color: var(--blue); font-size: 0.4rem; }
-  .modal-price { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.5rem; color: var(--red); margin-bottom: 1.2rem; letter-spacing: 0.02em; }
+  .modal-price { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.5rem; color: var(--red); margin-bottom: 1.2rem; letter-spacing: 0.02em; }
   .modal-order-btn { width: 100%; background: #25D366; color: #fff; border: none; padding: 0.9rem; font-family: 'Space Mono', monospace; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; gap: 0.6rem; transition: background 0.2s; }
   .modal-order-btn:hover { background: #1ebe5a; }
   .search-bar { position: relative; margin-bottom: 1.5rem; max-width: 360px; }
