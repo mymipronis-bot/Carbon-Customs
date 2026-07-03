@@ -577,6 +577,7 @@ export default function App() {
             <a href="#catalogue">Catalogue</a>
             <a href="#process">Process</a>
             <a href="#order">Order</a>
+            <a href="#" onClick={(e) => { e.preventDefault(); setShowReturnPolicy(true); }}>Return Policy</a>
             <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noreferrer">WhatsApp</a>
             <a href={INSTAGRAM} target="_blank" rel="noreferrer">Instagram</a>
             <a href={`mailto:${EMAIL}`}>Email</a>
@@ -584,12 +585,14 @@ export default function App() {
         </div>
         <div className="footer-bottom">
           <p className="footer-copy">© 2025 Carbon Customs. All rights reserved.</p>
-          <p className="footer-made">Built by <span>MymiDev</span></p>
         </div>
       </footer>
 
       {selectedProduct && (
         <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} onOrder={handleOrder} />
+      )}
+      {showReturnPolicy && (
+        <ReturnPolicyModal onClose={() => setShowReturnPolicy(false)} />
       )}
     </>
   );
