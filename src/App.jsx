@@ -75,8 +75,8 @@ const css = `
   .hero-slideshow { position: absolute; inset: 0; z-index: 1; }
   .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease-in-out; }
   .hero-slide.active { opacity: 1; }
-  .hero-slide img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.55) saturate(0.85); }
-  .hero-bg { position: absolute; inset: 0; z-index: 2; background: linear-gradient(180deg, rgba(8,8,8,0.1) 0%, rgba(8,8,8,0.5) 55%, #080808 100%), linear-gradient(90deg, rgba(8,8,8,0.35) 0%, transparent 50%, rgba(8,8,8,0.35) 100%); }
+  .hero-slide img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7) saturate(1.15) contrast(1.1); }
+  .hero-bg { position: absolute; inset: 0; z-index: 2; background: linear-gradient(180deg, rgba(8,8,8,0.05) 0%, rgba(8,8,8,0.35) 55%, #080808 100%), linear-gradient(90deg, rgba(8,8,8,0.2) 0%, transparent 50%, rgba(8,8,8,0.2) 100%); }
   .hero-dots { position: absolute; bottom: 3.5vh; left: 5vw; z-index: 4; display: flex; gap: 0.5rem; }
   .hero-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.25); border: none; cursor: pointer; transition: background 0.3s, transform 0.3s; padding: 0; }
   .hero-dot.active { background: var(--blue); transform: scale(1.4); }
