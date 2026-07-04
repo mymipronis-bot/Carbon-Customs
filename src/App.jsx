@@ -485,8 +485,12 @@ export default function App() {
           <li><a href="#process">Our Process</a></li>
           <li><a href="#order">Order Now</a></li>
         </ul>
-        <button className="nav-cta" onClick={() => document.getElementById("order").scrollIntoView({ behavior: "smooth" })}>
-          Order Now
+        <button
+          className="nav-cta"
+          onClick={() => document.getElementById("order").scrollIntoView({ behavior: "smooth" })}
+          style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "40px", height: "40px", padding: 0, borderRadius: "50%" }}
+        >
+          🛒
         </button>
       </nav>
 
