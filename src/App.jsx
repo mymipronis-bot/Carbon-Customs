@@ -30,8 +30,8 @@ const TESTIMONIALS = [
   { name: "James Reyes", city: "Miami, FL", text: "Build quality is next level. Fit was perfect and the leather stitching is flawless. Worth every dollar.", rating: 5 },
   { name: "Diana Cole", city: "Austin, TX", text: "Fast communication on WhatsApp, shipped exactly when promised. My Mustang's interior looks completely different now.", rating: 5 },
 ];
-const PAYMENT_METHODS = ["Zelle Pay", "Apple Pay", "Chime", "Bitcoin"];
-const CATEGORIES = ["All", "Sport", "Racing", "Street", "Luxury"];
+const PAYMENT_METHODS = ["Zelle", "Apple Pay", "Chime","Credit Card","Bitcoin"];
+const CATEGORIES = ["All", "Sport", "Racing", "Street","Body Parts","Luxury"];
 const WHATSAPP_NUMBER = "18392288550";
 const INSTAGRAM = "https://www.instagram.com/customs_carbon";
 const EMAIL = "carboncustoms792@gmail.com";
