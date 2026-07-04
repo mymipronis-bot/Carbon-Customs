@@ -63,7 +63,7 @@ const css = `
     --red: #FF3B3B; --red-dim: #CC2222; --white: #F0F0F0; --muted: #505050; --radius: 3px;
   }
   html { scroll-behavior: smooth; }
-  body { background: var(--black); color: var(--white); font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  body { background: var(--black); color: var(--white); font-family: 'Inter', serif; font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
   .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 5vw; height: 64px; background: rgba(8,8,8,0.96); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
   .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); text-decoration: none; display: flex; align-items: center; gap: 0.6rem; }
