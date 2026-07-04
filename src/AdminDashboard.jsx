@@ -9,14 +9,14 @@ const CATEGORIES = ["Sport", "Racing", "Street","Body Parts","Luxury"];
 const formatPrice = (p) => "$" + Number(p).toLocaleString("en-US");
 
 const css = `
-  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
     --black: #080808; --surface: #0D0D0D; --card: #111111; --border: #1C1C1C;
     --blue: #0066FF; --blue-dim: #0044CC; --red: #FF3B3B; --green: #25D366;
     --white: #F0F0F0; --muted: #555; --radius: 3px;
   }
-  body { background: var(--black); color: var(--white); font-family: 'Inter', sans-serif; font-size: 15px; -webkit-font-smoothing: antialiased; }
+  body { background: var(--black); color: var(--white); font-family: 'Inter', serif; font-size: 15px; -webkit-font-smoothing: antialiased; }
   .admin-wrap { min-height: 100vh; }
 
   /* LOGIN */
@@ -28,9 +28,9 @@ const css = `
   .login-error { background: rgba(255,59,59,0.1); border: 1px solid var(--red); color: var(--red); font-size: 0.78rem; padding: 0.7rem 1rem; border-radius: var(--radius); margin-bottom: 1rem; }
   .field-group { margin-bottom: 1.1rem; display: flex; flex-direction: column; gap: 0.4rem; }
   .field-label { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
-  .field-input { background: #0a0a0a; color: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.8rem 1rem; font-family: 'Inter', sans-serif; font-size: 0.88rem; width: 100%; }
+  .field-input { background: #0a0a0a; color: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.8rem 1rem; font-family: 'Inter', serif; font-size: 0.88rem; width: 100%; }
   .field-input:focus { outline: none; border-color: var(--blue); }
-  .field-select { background: #0a0a0a; color: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.8rem 1rem; font-family: 'Inter', sans-serif; font-size: 0.85rem; width: 100%; }
+  .field-select { background: #0a0a0a; color: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.8rem 1rem; font-family: 'Inter', serif; font-size: 0.85rem; width: 100%; }
   .field-select:focus { outline: none; border-color: var(--blue); }
   .login-btn { width: 100%; background: var(--blue); color: #fff; border: none; padding: 0.9rem; font-family: 'Space Mono', monospace; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); margin-top: 0.5rem; transition: background 0.2s; }
   .login-btn:hover { background: var(--blue-dim); }
