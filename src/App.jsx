@@ -328,11 +328,19 @@ function OrderForm({ preselectedProduct, products }) {
     }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (method) => {
     if (!form.name || !form.phone || !form.product) return;
     const product = products.find((p) => p.name === form.product);
     const msg = buildWhatsAppMsg(form, product);
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
+
+    if (method === "whatsapp") {
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
+    } else {
+      const emailSubject = encodeURIComponent(`New Order — ${form.name}`);
+      const emailBody = decodeURIComponent(msg).replace(/\*/g, "");
+      window.location.href = `mailto:${EMAIL}?subject=${emailSubject}&body=${encodeURIComponent(emailBody)}`;
+    }
+
     setSent(true);
     setTimeout(() => setSent(false), 4000);
   };
@@ -405,10 +413,16 @@ function OrderForm({ preselectedProduct, products }) {
         <label className="form-label">Additional Notes</label>
         <textarea className="form-textarea" placeholder="Thread color, leather type, initials, special requests..." value={form.note} onChange={set("note")} />
       </div>
-      <button className="form-submit" onClick={handleSubmit}>
-        <span>📲</span>
-        {sent ? "Redirecting to WhatsApp..." : "Send My Order"}
-      </button>
+      <div style={{ display: "flex", gap: "0.7rem" }}>
+        <button className="form-submit" style={{ flex: 1 }} onClick={() => handleSubmit("whatsapp")}>
+          <span>📲</span>
+          {sent ? "Redirecting..." : "Send via WhatsApp"}
+        </button>
+        <button className="form-submit" style={{ flex: 1, background: "#0066FF" }} onClick={() => handleSubmit("email")}>
+          <span>📧</span>
+          {sent ? "Redirecting..." : "Send via Email"}
+        </button>
+      </div>
     </div>
   );
 }
