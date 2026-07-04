@@ -5,7 +5,7 @@ const supabaseUrl = "https://hfbohbvaqeauwrcgbcur.supabase.co";
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhmYm9oYnZhcWVhdXdyY2diY3VyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI3OTIyMDksImV4cCI6MjA5ODM2ODIwOX0.8O1gPIUcffo7-TMxFGuhPUzpNNPSUPPYI1uEy30Gn8o";
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-const CATEGORIES = ["Sport", "Racing", "Street", "Luxury"];
+const CATEGORIES = ["Sport", "Racing", "Street","Body Parts","Luxury"];
 const formatPrice = (p) => "$" + Number(p).toLocaleString("en-US");
 
 const css = `
