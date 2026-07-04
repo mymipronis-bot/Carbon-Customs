@@ -135,7 +135,7 @@ const css = `
   .process-step { background: var(--card); padding: 2rem; transition: background 0.2s; }
   .process-step:hover { background: #161616; }
   .step-num { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 4rem; color: #1e1e1e; line-height: 1; margin-bottom: 1rem; letter-spacing: -0.02em; }
-  .step-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.2rem; letter-spacing: 0.03em; text-transform: uppercase; margin-bottom: 0.6rem; }
+  .step-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.2rem; letter-spacing: 0.03em; text-transform: uppercase; margin-bottom: 0.6rem; }
   .step-desc { font-size: 0.79rem; color: var(--muted); line-height: 1.78; }
 
   .order-section { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
