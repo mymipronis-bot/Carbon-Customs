@@ -311,13 +311,41 @@ function ReturnPolicyModal({ onClose }) {
     </div>
   );
 }
+const getPreselectedParts = (product) => {
+  if (!product) return [];
+  const name = product.name.toLowerCase();
+  const matched = [];
+  if (name.includes("wheel"))     matched.push("Steering Wheel");
+  if (name.includes("mirror"))    matched.push("Side Mirrors");
+  if (name.includes("hood"))      matched.push("Hood");
+  if (name.includes("trunk"))     matched.push("Trunk Lid");
+  if (name.includes("spoiler"))   matched.push("Spoiler");
+  if (name.includes("door"))      matched.push("Door Panels");
+  if (name.includes("dashboard") || name.includes("trim")) matched.push("Dashboard Trim");
+  if (name.includes("shift") || name.includes("knob"))     matched.push("Shift Knob");
+  if (name.includes("seat"))      matched.push("Seat Covers");
+  if (name.includes("roof"))      matched.push("Roof");
+  if (name.includes("skirt"))     matched.push("Side Skirts");
+  return matched;
+};
 function OrderForm({ preselectedProduct, products }) {
   const [form, setForm] = useState({
-    name: "", phone: "", address: "", car: "",
-    product: preselectedProduct?.name || "", parts: [], note: "",
-    paymentMethod: "Zelle Pay"
-  });
+  name: "", phone: "", address: "", car: "",
+  product: preselectedProduct?.name || "",
+  parts: getPreselectedParts(preselectedProduct),  
+  note: "",
+  paymentMethod: "Zelle Pay"
+});
   const [sent, setSent] = useState(false);
+  useEffect(() => {
+  if (preselectedProduct) {
+    setForm((f) => ({
+      ...f,
+      product: preselectedProduct.name,
+      parts: getPreselectedParts(preselectedProduct),
+    }));
+  }
+}, [preselectedProduct]);
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
   const togglePart = (part) => {
