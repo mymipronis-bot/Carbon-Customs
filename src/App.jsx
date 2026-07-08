@@ -84,7 +84,7 @@ const css = `
   .hero-dots { position: absolute; bottom: 3.5vh; left: 5vw; z-index: 4; display: flex; gap: 0.5rem; }
   .hero-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.25); border: none; cursor: pointer; transition: background 0.3s, transform 0.3s; padding: 0; }
   .hero-dot.active { background: var(--blue); transform: scale(1.4); }
-  .hero-eyebrow { font-family: 'Space Mono', monospace; font-size: 0.66rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--blue); margin-bottom: 1.4rem; position: relative; z-index: 3; display: flex; align-items: center; gap: 0.8rem; }
+  .hero-eyebrow { font-family: 'Playfair Display', serif; font-size: 0.66rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--blue); margin-bottom: 1.4rem; position: relative; z-index: 3; display: flex; align-items: center; gap: 0.8rem; }
   .hero-eyebrow::before { content: ''; display: inline-block; width: 28px; height: 1px; background: var(--blue); flex-shrink: 0; }
   .hero-title { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(4rem, 11vw, 9.5rem); line-height: 0.9; letter-spacing: -0.01em; text-transform: uppercase; position: relative; z-index: 3; max-width: 14ch; }
   .hero-title-outline { -webkit-text-stroke: 1.5px rgba(255,255,255,0.12); color: transparent; display: block; }
@@ -100,7 +100,7 @@ const css = `
   .stat-label { font-size: 0.62rem; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; font-family: 'Space Mono', monospace; }
 
   .section { padding: 6rem 5vw; }
-  .section-eyebrow { font-family: 'Space Mono', monospace; font-size: 0.63rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.7rem; display: flex; align-items: center; gap: 0.7rem; }
+  .section-eyebrow { font-family: 'Playfair Display', serif; font-size: 0.63rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.7rem; display: flex; align-items: center; gap: 0.7rem; }
   .section-eyebrow::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--blue); flex-shrink: 0; }
   .section-title { font-family: 'Playfair Display', serif; font-weight: 800; font-size: clamp(2.4rem, 5.5vw, 4rem); letter-spacing: -0.01em; text-transform: uppercase; line-height: 0.95; }
   .section-header { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem; }
@@ -147,7 +147,7 @@ const css = `
 
   .order-form { display: flex; flex-direction: column; gap: 1rem; }
   .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-  .form-label { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+  .form-label { font-family: 'Playfair Display', serif; font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
   .form-input, .form-select, .form-textarea { background: #0a0a0a; color: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.75rem 1rem; font-family: 'Inter', sans-serif; font-size: 0.85rem; transition: border-color 0.2s, box-shadow 0.2s; width: 100%; }
   .form-input:focus, .form-select:focus, .form-textarea:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,102,255,0.08); }
   .form-select option { background: #0a0a0a; }
@@ -160,7 +160,7 @@ const css = `
   .part-check-dot { width: 8px; height: 8px; border-radius: 50%; border: 1.5px solid var(--muted); flex-shrink: 0; transition: background 0.2s, border-color 0.2s; }
   .part-check.selected .part-check-dot { background: var(--blue); border-color: var(--blue); }
 
-  .form-submit { background: #0066FF; color: #fff; border: none; padding: 1rem; font-family: 'Space Mono', monospace; font-size: 0.76rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; gap: 0.6rem; transition: background 0.2s, transform 0.15s; margin-top: 0.5rem; }
+  .form-submit { background: #0066FF; color: #fff; border: none; padding: 1rem; font-family: 'Playfair Display', serif; font-size: 0.76rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; gap: 0.6rem; transition: background 0.2s, transform 0.15s; margin-top: 0.5rem; }
   .form-submit:hover { background: #0044CC; transform: translateY(-1px); }
 
   .footer { background: var(--black); border-top: 1px solid var(--border); padding: 3rem 5vw 2rem; }
@@ -480,17 +480,18 @@ export default function App() {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    gap: "0.4rem",
-    padding: "0.5rem 1.1rem",
-    borderRadius: "var(--radius)",
+    width: "48px",
+    height: "48px",
+    padding: 0,
+    borderRadius: "50%",
     background: "var(--blue)",
-    fontSize: "0.7rem",
-    fontFamily: "'Playfair Display', serif",
-    letterSpacing: "0.08em",
-    whiteSpace: "nowrap",
+    fontSize: "1.4rem",
+    border: "2px solid rgba(255,255,255,0.15)",
+    boxShadow: "0 0 18px rgba(0,102,255,0.4)",
+    cursor: "pointer",
   }}
 >
-  🛒 <span>Order Now</span>
+  🛒
 </button>
         
       </nav>
