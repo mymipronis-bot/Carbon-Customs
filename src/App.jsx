@@ -36,21 +36,22 @@ const INSTAGRAM = "https://www.instagram.com/customs_carbon";
 const EMAIL = "carboncustoms792@gmail.com";
 
 const formatPrice = (p) => "$" + Number(p).toLocaleString("en-US");
-
-const buildWhatsAppMsg = (form, product) => {
+const buildEmailMsg = (form, product) => {
   const lines = [
-    `🔥 *New Order — Carbon Customs*`, ``,
-    `👤 *Customer:* ${form.name}`,
-    `📍 *Address:* ${form.address}`,
-    `🚗 *Car Make & Model:* ${form.car}`, ``,
-    `🛞 *Product:* ${product ? product.name : form.product}`,
-    `💰 *Price:* ${product ? formatPrice(product.price) : "—"}`,
-    `💳 *Payment Method:* ${form.paymentMethod}`,
-    form.parts.length > 0 ? `🔧 *Body Parts:* ${form.parts.join(", ")}` : ``,
-    ``, form.note ? `📝 *Notes:* ${form.note}` : ``,
+    `New Order — Carbon Customs`, ``,
+    `Customer: ${form.name}`,
+    `Phone: ${form.phone}`,
+    `Address: ${form.address}`,
+    `Car Make & Model: ${form.car}`, ``,
+    `Product: ${product ? product.name : form.product}`,
+    `Price: ${product ? formatPrice(product.price) : "—"}`,
+    `Payment Method: ${form.paymentMethod}`,
+    form.parts.length > 0 ? `Body Parts: ${form.parts.join(", ")}` : ``,
+    ``, form.note ? `Notes: ${form.note}` : ``,
   ].filter((l) => l !== undefined).join("\n");
-  return encodeURIComponent(lines);
+  return lines;
 };
+
 
 const css = `
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
@@ -61,7 +62,7 @@ const css = `
     --red: #FF3B3B; --red-dim: #CC2222; --white: #F0F0F0; --muted: #505050; --radius: 3px;
   }
   html { scroll-behavior: smooth; }
-  body { background: var(--black); color: var(--white); font-family: 'Inter', serif; font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  body { background: var(--black); color: var(--white); font-family: 'Playfair Display', serif; font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
   .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 5vw; height: 64px; background: rgba(8,8,8,0.96); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
   .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); text-decoration: none; display: flex; align-items: center; gap: 0.6rem; }
@@ -159,8 +160,8 @@ const css = `
   .part-check-dot { width: 8px; height: 8px; border-radius: 50%; border: 1.5px solid var(--muted); flex-shrink: 0; transition: background 0.2s, border-color 0.2s; }
   .part-check.selected .part-check-dot { background: var(--blue); border-color: var(--blue); }
 
-  .form-submit { background: #25D366; color: #fff; border: none; padding: 1rem; font-family: 'Space Mono', monospace; font-size: 0.76rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; gap: 0.6rem; transition: background 0.2s, transform 0.15s; margin-top: 0.5rem; }
-  .form-submit:hover { background: #1ebe5a; transform: translateY(-1px); }
+  .form-submit { background: #0066FF; color: #fff; border: none; padding: 1rem; font-family: 'Space Mono', monospace; font-size: 0.76rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; gap: 0.6rem; transition: background 0.2s, transform 0.15s; margin-top: 0.5rem; }
+  .form-submit:hover { background: #0044CC; transform: translateY(-1px); }
 
   .footer { background: var(--black); border-top: 1px solid var(--border); padding: 3rem 5vw 2rem; }
   .footer-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
@@ -188,8 +189,8 @@ const css = `
   .modal-specs li { font-size: 0.79rem; color: var(--muted); padding: 0.4rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem; }
   .modal-specs li::before { content: "◆"; color: var(--blue); font-size: 0.4rem; }
   .modal-price { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.5rem; color: var(--red); margin-bottom: 1.2rem; letter-spacing: 0.02em; }
-  .modal-order-btn { width: 100%; background: #25D366; color: #fff; border: none; padding: 0.9rem; font-family: 'Space Mono', monospace; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; gap: 0.6rem; transition: background 0.2s; }
-  .modal-order-btn:hover { background: #1ebe5a; }
+  .modal-order-btn { width: 100%; background: #0066FF; color: #fff; border: none; padding: 0.9rem; font-family: 'Space Mono', monospace; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; gap: 0.6rem; transition: background 0.2s; }
+  .modal-order-btn:hover { background: #0044CC; }
   .search-bar { position: relative; margin-bottom: 1.5rem; max-width: 360px; }
   .search-input { width: 100%; background: #0a0a0a; color: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.7rem 1rem 0.7rem 2.4rem; font-family: 'Inter', sans-serif; font-size: 0.82rem; transition: border-color 0.2s, box-shadow 0.2s; }
   .search-input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,102,255,0.08); }
@@ -275,7 +276,7 @@ function ProductModal({ product, onClose, onOrder }) {
           </ul>
           <p className="modal-price">{formatPrice(product.price)}</p>
           <button className="modal-order-btn" onClick={() => onOrder(product)}>
-            <span>📲</span> Order via WhatsApp
+            <span>📲</span> Order via e-mail 
           </button>
         </div>
       </div>
@@ -300,7 +301,7 @@ function ReturnPolicyModal({ onClose }) {
             <li>Faulty or damaged items are eligible for a full refund or free replacement.</li>
             <li>Return shipping is free for faulty products; buyer covers return shipping for unwanted items.</li>
             <li>Refunds are processed within 5–7 business days after we receive the returned item.</li>
-            <li>To start a return, contact us via WhatsApp or email with your order details.</li>
+            <li>To start a return, contact us via  email with your order details.</li>
           </ul>
           <p style={{ color: "var(--muted)", fontSize: "0.78rem", lineHeight: 1.8 }}>
             Questions? Reach us at <a href={`mailto:${EMAIL}`} style={{ color: "var(--blue)" }}>{EMAIL}</a> or via WhatsApp.
@@ -326,22 +327,15 @@ function OrderForm({ preselectedProduct, products }) {
     }));
   };
 
-  const handleSubmit = (method) => {
-    if (!form.name || !form.phone || !form.product) return;
-    const product = products.find((p) => p.name === form.product);
-    const msg = buildWhatsAppMsg(form, product);
-
-    if (method === "whatsapp") {
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
-    } else {
-      const emailSubject = encodeURIComponent(`New Order — ${form.name}`);
-      const emailBody = decodeURIComponent(msg).replace(/\*/g, "");
-      window.location.href = `mailto:${EMAIL}?subject=${emailSubject}&body=${encodeURIComponent(emailBody)}`;
-    }
-
-    setSent(true);
-    setTimeout(() => setSent(false), 4000);
-  };
+  const handleSubmit = () => {
+  if (!form.name || !form.phone || !form.product) return;
+  const product = products.find((p) => p.name === form.product);
+  const emailBody = buildEmailMsg(form, product);
+  const emailSubject = encodeURIComponent(`New Order — ${form.name}`);
+  window.location.href = `mailto:${EMAIL}?subject=${emailSubject}&body=${encodeURIComponent(emailBody)}`;
+  setSent(true);
+  setTimeout(() => setSent(false), 4000);
+};
 
   return (
     <div className="order-form">
@@ -371,7 +365,7 @@ function OrderForm({ preselectedProduct, products }) {
         </div>
       </div>
       <div className="form-group">
-        <label className="form-label">Phone (WhatsApp) *</label>
+        <label className="form-label">Phone  *</label>
         <input className="form-input" placeholder="e.g. (555) 123-4567" value={form.phone} onChange={set("phone")} />
       </div>
       <div className="form-group">
@@ -412,14 +406,10 @@ function OrderForm({ preselectedProduct, products }) {
         <textarea className="form-textarea" placeholder="Thread color, leather type, initials, special requests..." value={form.note} onChange={set("note")} />
       </div>
       <div style={{ display: "flex", gap: "0.7rem" }}>
-        <button className="form-submit" style={{ flex: 1 }} onClick={() => handleSubmit("whatsapp")}>
-          <span>📲</span>
-          {sent ? "Redirecting..." : "Send via WhatsApp"}
-        </button>
-        <button className="form-submit" style={{ flex: 1, background: "#0066FF" }} onClick={() => handleSubmit("email")}>
-          <span>📧</span>
-          {sent ? "Redirecting..." : "Send via Email"}
-        </button>
+        <button className="form-submit" onClick={handleSubmit}>
+  <span>📧</span>
+  {sent ? "Redirecting..." : "Send via Email"}
+</button>
       </div>
     </div>
   );
@@ -484,12 +474,25 @@ export default function App() {
           <li><a href="#order">Order Now</a></li>
         </ul>
         <button
-          className="nav-cta"
-          onClick={() => document.getElementById("order").scrollIntoView({ behavior: "smooth" })}
-          style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "40px", height: "40px", padding: 0, borderRadius: "50%" }}
-        >
-          🛒
-        </button>
+  className="nav-cta"
+  onClick={() => document.getElementById("order").scrollIntoView({ behavior: "smooth" })}
+  style={{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "0.4rem",
+    padding: "0.5rem 1.1rem",
+    borderRadius: "var(--radius)",
+    background: "var(--blue)",
+    fontSize: "0.7rem",
+    fontFamily: "'Playfair Display', serif",
+    letterSpacing: "0.08em",
+    whiteSpace: "nowrap",
+  }}
+>
+  🛒 <span>Order Now</span>
+</button>
+        
       </nav>
 
       <section className="hero">
@@ -631,7 +634,6 @@ export default function App() {
             <a href="#process">Process</a>
             <a href="#order">Order</a>
             <a href="#" onClick={(e) => { e.preventDefault(); setShowReturnPolicy(true); }}>Return Policy</a>
-            <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noreferrer">WhatsApp</a>
             <a href={INSTAGRAM} target="_blank" rel="noreferrer">Instagram</a>
             <a href={`mailto:${EMAIL}`}>Email</a>
           </div>
