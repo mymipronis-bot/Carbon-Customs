@@ -28,7 +28,7 @@ const BODY_PARTS = [
 const TESTIMONIALS = [
   { name: "Frank Martins", city: "New York City", text: "The team was super helpful in guiding me through the selection process. The carbon fiber wheel I purchased was easy to install and gave my car the aggressive look I wanted.", rating: 5 },
   { name: "James Reyes", city: "Miami, FL", text: "Build quality is next level. Fit was perfect and the leather stitching is flawless. Worth every dollar.", rating: 5 },
-  { name: "Diana Cole", city: "Austin, TX", text: "Fast communication on WhatsApp, shipped exactly when promised. My Mustang's interior looks completely different now.", rating: 5 },
+  { name: "Diana Cole", city: "Austin, TX", text: "Fast communication on email, shipped exactly when promised. My Mustang's interior looks completely different now.", rating: 5 },
 ];
 const PAYMENT_METHODS = ["Zelle", "Apple Pay", "Chime","Credit Card","Bitcoin"];
 const CATEGORIES = ["All", "Sport", "Racing", "Street","Body Parts","Luxury"];
@@ -41,7 +41,6 @@ const buildWhatsAppMsg = (form, product) => {
   const lines = [
     `🔥 *New Order — Carbon Customs*`, ``,
     `👤 *Customer:* ${form.name}`,
-    `📞 *Phone:* ${form.phone}`,
     `📍 *Address:* ${form.address}`,
     `🚗 *Car Make & Model:* ${form.car}`, ``,
     `🛞 *Product:* ${product ? product.name : form.product}`,
