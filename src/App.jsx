@@ -32,7 +32,6 @@ const TESTIMONIALS = [
 ];
 const PAYMENT_METHODS = ["Zelle", "Apple Pay", "Chime","Credit Card","Bitcoin"];
 const CATEGORIES = ["All", "Sport", "Racing", "Street","Body Parts","Luxury"];
-const WHATSAPP_NUMBER = "18392288550";
 const INSTAGRAM = "https://www.instagram.com/customs_carbon";
 const EMAIL = "carboncustoms792@gmail.com";
 
