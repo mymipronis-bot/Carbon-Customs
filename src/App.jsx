@@ -71,7 +71,7 @@ const css = `
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; transition: color 0.2s; }
   .nav-links a:hover { color: var(--white); }
-  .nav-cta { background: var(--blue); color: #fff; border: none; padding: 0.48rem 1.3rem; font-family: 'Space Mono', monospace; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); transition: background 0.2s, box-shadow 0.2s; }
+  .nav-cta { background: var(--blue); color: #fff; border: none; padding: 0.48rem 1.3rem; font-family: 'Playfair Display', serif; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); transition: background 0.2s, box-shadow 0.2s; }
   .nav-cta:hover { background: var(--blue-dim); box-shadow: 0 0 20px var(--blue-glow); }
 
   .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 5vw 9vh; position: relative; overflow: hidden; background: #080808; }
@@ -91,13 +91,13 @@ const css = `
   .hero-title em { color: var(--blue); font-style: normal; display: block; }
   .hero-sub { max-width: 420px; color: var(--muted); font-size: 0.88rem; line-height: 1.85; margin-top: 1.8rem; position: relative; z-index: 3; }
   .hero-actions { display: flex; gap: 1rem; margin-top: 2.6rem; position: relative; z-index: 3; flex-wrap: wrap; }
-  .btn-primary { background: var(--blue); color: #fff; border: none; padding: 0.9rem 2.2rem; font-family: 'Space Mono', monospace; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); transition: background 0.2s, transform 0.15s, box-shadow 0.2s; }
+  .btn-primary { background: var(--blue); color: #fff; border: none; padding: 0.9rem 2.2rem; font-family: 'Playfair Display', serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); transition: background 0.2s, transform 0.15s, box-shadow 0.2s; }
   .btn-primary:hover { background: var(--blue-dim); transform: translateY(-2px); box-shadow: 0 8px 30px var(--blue-glow); }
-  .btn-outline { background: transparent; color: var(--white); border: 1px solid #252525; padding: 0.9rem 2.2rem; font-family: 'Space Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); transition: border-color 0.2s, color 0.2s; }
+  .btn-outline { background: transparent; color: var(--white); border: 1px solid #252525; padding: 0.9rem 2.2rem; font-family: 'Playfair Display', serif; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); transition: border-color 0.2s, color 0.2s; }
   .btn-outline:hover { border-color: var(--blue); color: var(--blue); }
   .hero-stats { position: absolute; right: 5vw; bottom: 9vh; z-index: 3; display: flex; flex-direction: column; gap: 2rem; text-align: right; }
   .stat-num { font-family: 'Playfair Display', serif; font-weight: 800; font-size: 2.8rem; color: var(--blue); line-height: 1; letter-spacing: -0.02em; }
-  .stat-label { font-size: 0.62rem; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; font-family: 'Space Mono', monospace; }
+  .stat-label { font-size: 0.62rem; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; font-family: 'Playfair Display', Serif; }
 
   .section { padding: 6rem 5vw; }
   .section-eyebrow { font-family: 'Playfair Display', serif; font-size: 0.63rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.7rem; display: flex; align-items: center; gap: 0.7rem; }
@@ -106,7 +106,7 @@ const css = `
   .section-header { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem; }
 
   .filter-bar { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
-  .filter-btn { background: transparent; color: var(--muted); border: 1px solid var(--border); padding: 0.38rem 1rem; font-family: 'Space Mono', monospace; font-size: 0.63rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; border-radius: 2px; transition: all 0.18s; }
+  .filter-btn { background: transparent; color: var(--muted); border: 1px solid var(--border); padding: 0.38rem 1rem; font-family: 'Playfair Display', serif; font-size: 0.63rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; border-radius: 2px; transition: all 0.18s; }
   .filter-btn:hover { color: var(--white); border-color: #333; }
   .filter-btn.active { background: var(--blue); color: #fff; border-color: var(--blue); box-shadow: 0 0 14px var(--blue-glow); }
 
@@ -120,14 +120,14 @@ const css = `
   .card-img { width: 100%; max-height: 360px; object-fit: contain; display: block; transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94); padding: 0.6rem; }
   .card-badge { position: absolute; top: 12px; left: 12px; background: var(--red); color: #fff; font-family: 'Space Mono', monospace; font-size: 0.56rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.22rem 0.55rem; }
   .card-body { padding: 1.2rem 1.4rem 1.5rem; }
-  .card-cat { font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red-dim); margin-bottom: 0.3rem; font-family: 'Space Mono', monospace; }
+  .card-cat { font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red-dim); margin-bottom: 0.3rem; font-family: 'Playfair Display', serif; }
   .card-name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.35rem; letter-spacing: 0.02em; line-height: 1.05; text-transform: uppercase; margin-bottom: 0.85rem; }
   .card-specs { list-style: none; margin-bottom: 1rem; }
   .card-specs li { font-size: 0.72rem; color: var(--muted); padding: 0.26rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem; }
   .card-specs li::before { content: "—"; color: var(--blue); font-size: 0.5rem; }
   .card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 0.5rem; }
   .card-price { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.1rem; color: var(--red); letter-spacing: 0.02em; }
-  .card-btn { background: transparent; color: var(--blue); border: 1px solid var(--blue); padding: 0.38rem 0.9rem; font-family: 'Space Mono', monospace; font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); transition: background 0.2s, color 0.2s; }
+  .card-btn { background: transparent; color: var(--blue); border: 1px solid var(--blue); padding: 0.38rem 0.9rem; font-family: 'Playfair Display', serif; font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); transition: background 0.2s, color 0.2s; }
   .card-btn:hover { background: var(--blue); color: #fff; }
 
   .process-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 3rem; }
@@ -189,7 +189,7 @@ const css = `
   .modal-specs li { font-size: 0.79rem; color: var(--muted); padding: 0.4rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem; }
   .modal-specs li::before { content: "◆"; color: var(--blue); font-size: 0.4rem; }
   .modal-price { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.5rem; color: var(--red); margin-bottom: 1.2rem; letter-spacing: 0.02em; }
-  .modal-order-btn { width: 100%; background: #0066FF; color: #fff; border: none; padding: 0.9rem; font-family: 'Space Mono', monospace; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; gap: 0.6rem; transition: background 0.2s; }
+  .modal-order-btn { width: 100%; background: #0066FF; color: #fff; border: none; padding: 0.9rem; font-family: 'Playfair Display', serif; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; gap: 0.6rem; transition: background 0.2s; }
   .modal-order-btn:hover { background: #0044CC; }
   .search-bar { position: relative; margin-bottom: 1.5rem; max-width: 360px; }
   .search-input { width: 100%; background: #0a0a0a; color: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.7rem 1rem 0.7rem 2.4rem; font-family: 'Inter', sans-serif; font-size: 0.82rem; transition: border-color 0.2s, box-shadow 0.2s; }
@@ -267,7 +267,7 @@ function ProductModal({ product, onClose, onOrder }) {
           <p className="modal-cat">{product.category}</p>
           <h3 className="modal-name">{product.name}</h3>
           {product.badge && (
-            <span style={{ background: "var(--red)", color: "#fff", fontSize: "0.58rem", fontFamily: "'Space Mono',monospace", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", padding: "0.2rem 0.55rem", display: "inline-block", marginBottom: "0.8rem" }}>
+            <span style={{ background: "var(--red)", color: "#fff", fontSize: "0.58rem", fontFamily: "'Playfair Display',serif", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", padding: "0.2rem 0.55rem", display: "inline-block", marginBottom: "0.8rem" }}>
               {product.badge}
             </span>
           )}
@@ -366,7 +366,7 @@ function OrderForm({ preselectedProduct, products }) {
 };
 
   return (
-    <div className="order-form">
+    (async () => {    <div className="order-form">
 
   <div className="form-group">
     <label className="form-label">Desired Product *</label>
@@ -504,7 +504,7 @@ export default function App() {
   const [showReturnPolicy, setShowReturnPolicy] = useState(false);
   useEffect(() => {
     let mounted = true;
-    (async () => {
+
       try {
         const [{ data: prodData }, { data: heroData }, { data: settingsData }] = await Promise.all([
           supabase.from("products").select("*").order("created_at", { ascending: true }),
@@ -689,7 +689,7 @@ export default function App() {
           <div className="order-info">
             <p className="section-eyebrow">Order</p>
             <h2>Place Your<br />Order</h2>
-            <p>Fill out the form and you'll be redirected to WhatsApp to finalize your order with our team.</p>
+            <p>Fill out the form and you'll be redirected to email to finalize your order with our team.</p>
             <p>All parts are handcrafted by specialists in carbon fiber. Build time: 7 to 14 days.</p>
             <div className="order-guarantee">
               {[["✦","Secure online payment"],["✦","Shipping anywhere in the USA"],["✦","30-day satisfaction guarantee"],["✦","Installation included on request"]].map(([icon, text]) => (
