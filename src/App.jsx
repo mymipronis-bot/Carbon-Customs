@@ -442,7 +442,6 @@ function OrderForm({ preselectedProduct, products }) {
 
 </div>
   );
-}
 
 export default function App() {
   const [products, setProducts] = useState(FALLBACK_PRODUCTS);
