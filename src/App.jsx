@@ -54,7 +54,7 @@ const buildEmailMsg = (form, product) => {
 
 
 const css = `
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Playfair+Display :wght@400;700&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
     --black: #080808; --surface: #0D0D0D; --card: #111111; --border: #1C1C1C;
@@ -118,7 +118,7 @@ const css = `
   .card-hover-line { position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--blue); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
   .card-img-wrap { overflow: hidden; background: #0a0a0a; display: flex; align-items: center; justify-content: center; min-height: 220px; max-height: 360px; }
   .card-img { width: 100%; max-height: 360px; object-fit: contain; display: block; transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94); padding: 0.6rem; }
-  .card-badge { position: absolute; top: 12px; left: 12px; background: var(--red); color: #fff; font-family: 'Space Mono', monospace; font-size: 0.56rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.22rem 0.55rem; }
+  .card-badge { position: absolute; top: 12px; left: 12px; background: var(--red); color: #fff; font-family: 'Playfair Display', serif; font-size: 0.56rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.22rem 0.55rem; }
   .card-body { padding: 1.2rem 1.4rem 1.5rem; }
   .card-cat { font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red-dim); margin-bottom: 0.3rem; font-family: 'Playfair Display', serif; }
   .card-name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.35rem; letter-spacing: 0.02em; line-height: 1.05; text-transform: uppercase; margin-bottom: 0.85rem; }
@@ -183,7 +183,7 @@ const css = `
   .modal-close:hover { background: var(--blue); color: #fff; }
   .modal-img { width: 100%; max-height: 420px; object-fit: contain; display: block; background: #0a0a0a; padding: 1rem; }
   .modal-body { padding: 1.5rem; }
-  .modal-cat { font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red-dim); font-family: 'Space Mono', monospace; }
+  .modal-cat { font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red-dim); font-family: 'Playfair Display', serif; }
   .modal-name { font-family: 'Playfair Display', serif; font-weight: 800; font-size: 2.1rem; letter-spacing: 0.02em; text-transform: uppercase; margin: 0.4rem 0 1rem; line-height: 1; }
   .modal-specs { list-style: none; margin-bottom: 1.2rem; }
   .modal-specs li { font-size: 0.79rem; color: var(--muted); padding: 0.4rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem; }
@@ -192,7 +192,7 @@ const css = `
   .modal-order-btn { width: 100%; background: #0066FF; color: #fff; border: none; padding: 0.9rem; font-family: 'Playfair Display', serif; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; gap: 0.6rem; transition: background 0.2s; }
   .modal-order-btn:hover { background: #0044CC; }
   .search-bar { position: relative; margin-bottom: 1.5rem; max-width: 360px; }
-  .search-input { width: 100%; background: #0a0a0a; color: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.7rem 1rem 0.7rem 2.4rem; font-family: 'Inter', sans-serif; font-size: 0.82rem; transition: border-color 0.2s, box-shadow 0.2s; }
+  .search-input { width: 100%; background: #0a0a0a; color: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.7rem 1rem 0.7rem 2.4rem; font-family: 'Playfair Display', serif; font-size: 0.82rem; transition: border-color 0.2s, box-shadow 0.2s; }
   .search-input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,102,255,0.08); }
   .search-input::placeholder { color: var(--muted); }
   .search-icon { position: absolute; left: 0.85rem; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 0.85rem; pointer-events: none; }
@@ -366,7 +366,7 @@ function OrderForm({ preselectedProduct, products }) {
 };
 
   return (
-    (async () => {    <div className="order-form">
+    (async () => {  <div className="order-form">
 
   <div className="form-group">
     <label className="form-label">Desired Product *</label>
@@ -441,54 +441,7 @@ function OrderForm({ preselectedProduct, products }) {
   </button>
 
 </div>
-      <div className="form-group">
-        <label className="form-label">Phone  *</label>
-        <input className="form-input" placeholder="e.g. (555) 123-4567" value={form.phone} onChange={set("phone")} />
-      </div>
-      <div className="form-group">
-        <label className="form-label">Address</label>
-        <input className="form-input" placeholder="e.g. 123 Main St, Los Angeles, CA" value={form.address} onChange={set("address")} />
-      </div>
-      <div className="form-group">
-        <label className="form-label">Car Make & Model</label>
-        <input className="form-input" placeholder="e.g. Lexus IS350, Ford Mustang GT" value={form.car} onChange={set("car")} />
-      </div>
-      <div className="form-group">
-        <label className="form-label">Desired Product *</label>
-        <select className="form-select" value={form.product} onChange={set("product")}>
-          <option value="">— Select a product —</option>
-          {products.map((p) => (
-            <option key={p.id} value={p.name}>{p.name} — {formatPrice(p.price)}</option>
-          ))}
-          <option value="Full Custom">Full Custom Build (quote on request)</option>
-        </select>
-      </div>
-      <div className="form-group">
-        <label className="form-label">Body Parts Needed</label>
-        <div className="parts-grid">
-          {BODY_PARTS.map((part) => (
-            <div
-              key={part}
-              className={`part-check${form.parts.includes(part) ? " selected" : ""}`}
-              onClick={() => togglePart(part)}
-            >
-              <span className="part-check-dot" />
-              {part}
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="form-group">
-        <label className="form-label">Additional Notes</label>
-        <textarea className="form-textarea" placeholder="Thread color, leather type, initials, special requests..." value={form.note} onChange={set("note")} />
-      </div>
-      <div style={{ display: "flex", gap: "0.7rem" }}>
-        <button className="form-submit" onClick={handleSubmit}>
-  <span>📧</span>
-  {sent ? "Redirecting..." : "Send via Email"}
-</button>
-      </div>
-    </div>
+    
   );
 }
 
