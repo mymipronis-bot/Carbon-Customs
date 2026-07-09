@@ -624,7 +624,7 @@ export default function App() {
           {[
             { n: "01", t: "Pick Your Model", d: "Browse our catalogue and choose the product that matches your style and your vehicle." },
             { n: "02", t: "Customize It", d: "Select your carbon weave, leather, thread color, and any personal details you want." },
-            { n: "03", t: "Order via email", d: "Send your order on email. We'll confirm lead time and final price within 24h." },
+            { n: "03", t: "Order via e-mail", d: "Send your order on e-mail. We'll confirm lead time and final price within 24h." },
             { n: "04", t: "Delivered Nationwide", d: "Handbuilt in 7–14 days. Shipped anywhere in the USA." },
           ].map((s) => (
             <div key={s.n} className="process-step">
@@ -641,7 +641,7 @@ export default function App() {
           <div className="order-info">
             <p className="section-eyebrow">Order</p>
             <h2>Place Your<br />Order</h2>
-            <p>Fill out the form and you'll be redirected to email to finalize your order with our team.</p>
+            <p>Fill out the form and you'll be redirected to e-mail to finalize your order with our team.</p>
             <p>All parts are handcrafted by specialists in carbon fiber. Build time: 7 to 14 days.</p>
             <div className="order-guarantee">
               {[["✦","Secure online payment"],["✦","Shipping anywhere in the USA"],["✦","30-day satisfaction guarantee"],["✦","Installation included on request"]].map(([icon, text]) => (
