@@ -90,7 +90,7 @@ const css = `
   .hero-title-outline { -webkit-text-stroke: 1.5px rgba(255,255,255,0.12); color: transparent; display: block; }
   .hero-title em { color: var(--blue); font-style: normal; display: block; }
   .hero-sub { max-width: 420px; color: var(--muted); font-size: 0.88rem; line-height: 1.85; margin-top: 1.8rem; position: relative; z-index: 3; }
-  .hero-actions { display: flex; gap: 1rem; margin-top: 2.6rem; position: relative; z-index: 3; flex-wrap: wrap; }
+  .hero-actions { display: flex; gap: 1rem; margin-top: 2.6rem; position: relative; z-index: 3; flex-wrap: wrap; font-family: 'Playfair Display',serif; }
   .btn-primary { background: var(--blue); color: #fff; border: none; padding: 0.9rem 2.2rem; font-family: 'Playfair Display', serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); transition: background 0.2s, transform 0.15s, box-shadow 0.2s; }
   .btn-primary:hover { background: var(--blue-dim); transform: translateY(-2px); box-shadow: 0 8px 30px var(--blue-glow); }
   .btn-outline { background: transparent; color: var(--white); border: 1px solid #252525; padding: 0.9rem 2.2rem; font-family: 'Playfair Display', serif; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); transition: border-color 0.2s, color 0.2s; }
