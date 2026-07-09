@@ -34,7 +34,7 @@ const PAYMENT_METHODS = ["Zelle", "Apple Pay", "Chime","Credit Card","Bitcoin"];
 const CATEGORIES = ["All", "Sport", "Racing", "Street","Body Parts","Luxury"];
 const INSTAGRAM = "https://www.instagram.com/customs_carbon";
 const EMAIL = "carboncustoms792@gmail.com";
-
+const WHATSAPP = "https://wa.me/15852676265";
 const formatPrice = (p) => "$" + Number(p).toLocaleString("en-US");
 const buildEmailMsg = (form, product) => {
   const lines = [
@@ -665,6 +665,7 @@ export default function App() {
             <a href="#" onClick={(e) => { e.preventDefault(); setShowReturnPolicy(true); }}>Return Policy</a>
             <a href={INSTAGRAM} target="_blank" rel="noreferrer">Instagram</a>
             <a href={`mailto:${EMAIL}`}>Email</a>
+            <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">WhatsApp</a>
           </div>
         </div>
         <div className="footer-bottom">
