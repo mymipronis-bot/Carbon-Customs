@@ -456,7 +456,7 @@ export default function App() {
   const [showReturnPolicy, setShowReturnPolicy] = useState(false);
   useEffect(() => {
     let mounted = true;
-
+    (async () => {
       try {
         const [{ data: prodData }, { data: heroData }, { data: settingsData }] = await Promise.all([
           supabase.from("products").select("*").order("created_at", { ascending: true }),
