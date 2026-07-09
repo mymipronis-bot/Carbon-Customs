@@ -53,8 +53,8 @@ const css = `
   .admin-body { padding: 2rem 5vw 5rem; }
   .admin-toolbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem; }
   .admin-title { font-family: 'Playfair Display', serif; font-weight: 800; font-size: 2rem; letter-spacing: -0.01em; text-transform: uppercase; }
-  .admin-count { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--muted); }
-  .add-btn { background: var(--blue); color: #fff; border: none; padding: 0.7rem 1.3rem; font-family: 'Space Mono', monospace; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); transition: background 0.2s; }
+  .admin-count { font-family: 'Playfair Display', serif; font-size: 0.7rem; color: var(--muted); }
+  .add-btn { background: var(--blue); color: #fff; border: none; padding: 0.7rem 1.3rem; font-family: 'Playfair Display', serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; border-radius: var(--radius); transition: background 0.2s; }
   .add-btn:hover { background: var(--blue-dim); }
 
   /* PRODUCT LIST */
@@ -117,7 +117,7 @@ const css = `
 
 // ── UPLOAD HELPER ─────────────────────────────────────────────────────────────
 async function uploadImage(file, bucket = "product-images") {
-  if (file.size > 5 * 1024 * 1024) throw new Error("Image too large. Max 5MB.");
+  if (file.size > 10 * 1024 * 1024) throw new Error("Image too large. Max 10MB.");
   const ext = file.name.split(".").pop();
   const fileName = `${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
   const { error } = await supabase.storage.from(bucket).upload(fileName, file, { cacheControl: "3600", upsert: false });
