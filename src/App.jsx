@@ -366,7 +366,7 @@ function OrderForm({ preselectedProduct, products }) {
 };
 
   return (
-    (async () => {  <div className="order-form">
+     <div className="order-form">
 
   <div className="form-group">
     <label className="form-label">Desired Product *</label>
