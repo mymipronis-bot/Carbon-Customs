@@ -367,31 +367,80 @@ function OrderForm({ preselectedProduct, products }) {
 
   return (
     <div className="order-form">
-      <div className="form-group">
-        <label className="form-label">Full Name *</label>
-        <input className="form-input" placeholder="e.g. James Wilson" value={form.name} onChange={set("name")} />
-      </div>
-      <div className="form-group">
-        <label className="form-label">Payment Method</label>
-        <div className="payment-list">
-          {PAYMENT_METHODS.map((method) => (
-            <div key={method}>
-              <div
-                className={`payment-option${form.paymentMethod === method ? " selected" : ""}`}
-                onClick={() => setForm((f) => ({ ...f, paymentMethod: method }))}
-              >
-                <span className="payment-radio" />
-                <span className="payment-option-label">{method}</span>
-              </div>
-              {form.paymentMethod === method && (
-                <div className="payment-reveal">
-                  Proceed with your order, we will provide you with {method} details.
-                </div>
-              )}
-            </div>
-          ))}
+
+  <div className="form-group">
+    <label className="form-label">Desired Product *</label>
+    <select className="form-select" value={form.product} onChange={set("product")}>
+      <option value="">— Select a product —</option>
+      {products.map((p) => (
+        <option key={p.id} value={p.name}>{p.name} — {formatPrice(p.price)}</option>
+      ))}
+      <option value="Full Custom">Full Custom Build (quote on request)</option>
+    </select>
+  </div>
+
+  <div className="form-group">
+    <label className="form-label">Full Name *</label>
+    <input className="form-input" placeholder="e.g. James Wilson" value={form.name} onChange={set("name")} />
+  </div>
+
+  <div className="form-group">
+    <label className="form-label">Phone *</label>
+    <input className="form-input" placeholder="e.g. (555) 123-4567" value={form.phone} onChange={set("phone")} />
+  </div>
+
+  <div className="form-group">
+    <label className="form-label">Address</label>
+    <input className="form-input" placeholder="e.g. 123 Main St, Los Angeles, CA" value={form.address} onChange={set("address")} />
+  </div>
+
+  <div className="form-group">
+    <label className="form-label">Car Make & Model</label>
+    <input className="form-input" placeholder="e.g. Lexus IS350, Ford Mustang GT" value={form.car} onChange={set("car")} />
+  </div>
+
+  <div className="form-group">
+    <label className="form-label">Body Parts Needed</label>
+    <div className="parts-grid">
+      {BODY_PARTS.map((part) => (
+        <div key={part} className={`part-check${form.parts.includes(part) ? " selected" : ""}`} onClick={() => togglePart(part)}>
+          <span className="part-check-dot" />
+          {part}
         </div>
-      </div>
+      ))}
+    </div>
+  </div>
+
+  <div className="form-group">
+    <label className="form-label">Additional Notes</label>
+    <textarea className="form-textarea" placeholder="Thread color, leather type, initials, special requests..." value={form.note} onChange={set("note")} />
+  </div>
+
+  <div className="form-group">
+    <label className="form-label">Payment Method</label>
+    <div className="payment-list">
+      {PAYMENT_METHODS.map((method) => (
+        <div key={method}>
+          <div className={`payment-option${form.paymentMethod === method ? " selected" : ""}`} onClick={() => setForm((f) => ({ ...f, paymentMethod: method }))}>
+            <span className="payment-radio" />
+            <span className="payment-option-label">{method}</span>
+          </div>
+          {form.paymentMethod === method && (
+            <div className="payment-reveal">
+              Proceed with your order, we will provide you with {method} details.
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <button className="form-submit" onClick={handleSubmit}>
+    <span>📧</span>
+    {sent ? "Redirecting..." : "Send via Email"}
+  </button>
+
+</div>
       <div className="form-group">
         <label className="form-label">Phone  *</label>
         <input className="form-input" placeholder="e.g. (555) 123-4567" value={form.phone} onChange={set("phone")} />
