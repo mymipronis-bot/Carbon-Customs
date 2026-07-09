@@ -601,7 +601,7 @@ export default function App() {
             <h2 className="section-title">Our Products</h2>
           </div>
           {!loading && (
-            <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "0.62rem", color: "#2a8a3e", letterSpacing: "0.1em", textTransform: "uppercase", display: "flex", alignItems: "center", gap: "0.4rem" }}>
+            <span style={{ fontFamily: "'Playfair Display', serif", fontSize: "0.62rem", color: "#2a8a3e", letterSpacing: "0.1em", textTransform: "uppercase", display: "flex", alignItems: "center", gap: "0.4rem" }}>
               <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#2a8a3e", display: "inline-block" }} />
               Live Inventory
             </span>
@@ -672,7 +672,7 @@ export default function App() {
           {[
             { n: "01", t: "Pick Your Model", d: "Browse our catalogue and choose the product that matches your style and your vehicle." },
             { n: "02", t: "Customize It", d: "Select your carbon weave, leather, thread color, and any personal details you want." },
-            { n: "03", t: "Order via WhatsApp", d: "Send your order on WhatsApp. We'll confirm lead time and final price within 24h." },
+            { n: "03", t: "Order via email", d: "Send your order on email. We'll confirm lead time and final price within 24h." },
             { n: "04", t: "Delivered Nationwide", d: "Handbuilt in 7–14 days. Shipped anywhere in the USA." },
           ].map((s) => (
             <div key={s.n} className="process-step">
